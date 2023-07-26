@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+  </head>
+
+</html>
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Examples</title>
+    <script src="../dist/mc-player-counter.min.js"></script>
+    <title>小黑屋</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #header {
+            background-color: #f2f2f2;
+            text-align: center;
+            padding: 20px
+        }
+
+        #content {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .player-avatar {
+            width: 20px;
+            height: 20px;
+            object-fit: cover;
+            margin-right: 5px;
+            margin-bottom: -3px
+        }
+
+        /* 排行那列右对齐 */
+        th:first-child,
+        td:first-child {
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <h1>服务器在线情况</h1>
+        <p>2023年GMK Parkour比赛</p>
+    </div>
+
+      <p>Players on parkour.pigenopro.top: <b><span data-playercounter-ip="parkour.pigenopro.top">0</span></b></p>
+      <p>Players on parkour.pigenopro.top: <b><span data-playercounter-ip="parkour.pigenopro.top" data-playercounter-format="{online}/{max}">0</span></b></p>
+      <p>parkour.pigenopro.top is currently <span data-playercounter-ip="parkour.pigenopro.top" data-playercounter-status>...</span></p>
+
+    </script>
+</body>
+
+</html>

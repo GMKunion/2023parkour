@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>排行榜</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #header {
+            background-color: #f2f2f2;
+            text-align: center;
+            padding: 20px
+        }
+
+        #content {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .player-avatar {
+            width: 20px;
+            height: 20px;
+            object-fit: cover;
+            margin-right: 5px;
+            margin-bottom: -3px
+        }
+
+        /* 排行那列右对齐 */
+        th:first-child,
+        td:first-child {
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <h1>排行榜</h1>
+        <p>2023年GMK Parkour比赛</p>
+    </div>
+
+    <div id="content">
+        <table id="leaderboard-table">
+            <tr>
+                <th>排行</th>
+                <th>玩家</th>
+                <th>耗时</th>
+                <th>死亡次数</th>
+                <th>完成关卡数</th>
+                <th>得分</th>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        // json数据
+        var leaderboardData = [
+            { rank: "#1", player: "null", time: "null", deathcount: "null", completion: "null", score: "null" }
+        ];
+
+        var leaderboardTable = document.getElementById("leaderboard-table");
+        for (var i = 0; i < leaderboardData.length; i++) {
+            var row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${leaderboardData[i].rank}</td>
+                <td>
+                <img src="https://minotar.net/avatar/${leaderboardData[i].player}" alt="Player Avatar" class="player-avatar">
+                ${leaderboardData[i].player}
+                </td>
+                <td>${leaderboardData[i].time}</td>
+                <td>${leaderboardData[i].deathcount}</td>
+                <td>${leaderboardData[i].completion}</td>
+                <td>${leaderboardData[i].score}</td>
+            `;
+            leaderboardTable.appendChild(row);
+        }
+    </script>
+        <p></p>
+        <div id="header">
+            <h4>计算公式:分数=关卡*4-时间*0.001-死亡数*0.02-其他</h4>
+            <h4>其他：临时ban    	5分/次			Ban		10</h4>
+        </div>
+</body>
+
+</html>

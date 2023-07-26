@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>小黑屋</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #header {
+            background-color: #f2f2f2;
+            text-align: center;
+            padding: 20px
+        }
+
+        #content {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .player-avatar {
+            width: 20px;
+            height: 20px;
+            object-fit: cover;
+            margin-right: 5px;
+            margin-bottom: -3px
+        }
+
+        /* 排行那列右对齐 */
+        th:first-child,
+        td:first-child {
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <h1>小黑屋</h1>
+        <p>2023年GMK Parkour比赛</p>
+    </div>
+
+    <div id="content">
+        <table id="leaderboard-table">
+            <tr>
+                <th>序号</th>
+                <th>玩家</th>
+                <th>类型</th>
+                <th>原因</th>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        // json数据
+        var leaderboardData = [
+            { rank: "1", player: "Myschar", type: "tempban", reason: "开挂喽" },
+            { rank: "2", player: "mukaunonline", type: "tempban", reason: "开挂喽" }
+        ];
+
+        var leaderboardTable = document.getElementById("leaderboard-table");
+        for (var i = 0; i < leaderboardData.length; i++) {
+            var row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${leaderboardData[i].rank}</td>
+                <td>
+                <img src="https://minotar.net/avatar/${leaderboardData[i].player}" alt="Player Avatar" class="player-avatar">
+                ${leaderboardData[i].player}
+                </td>
+                <td>${leaderboardData[i].type}</td>
+                <td>${leaderboardData[i].reason}</td>
+            `;
+            leaderboardTable.appendChild(row);
+        }
+    </script>
+</body>
+
+</html>

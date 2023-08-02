@@ -51,9 +51,9 @@
 
 <body>
     <div id="header">
-        <h1>排行榜</h1>
+        <h1>排行榜[持续更新中]</h1>
         <p>2023年GMK Parkour比赛</p>
-        <p>比赛结束了，排名已完全统计！</p>
+        <p>比赛完全结束前，仅统计跑完全程的，没跑完的比赛结束后统计！</p>
     </div>
 
     <div id="content">
@@ -64,6 +64,7 @@
                 <th>耗时(秒)</th>
                 <th>死亡次数</th>
                 <th>完成关卡数</th>
+                <th>额外扣分</th>
                 <th>得分(满分100分)</th>
             </tr>
         </table>
@@ -405,7 +406,7 @@
         rankingData.sort((a, b) => b.score - a.score);
 
         for (var i = 0; i < rankingData.length; i++) {
-            const { player, time, deathCount, completion, score } = rankingData[i];
+            const { player, time, deathCount, completion, other, score } = rankingData[i];
             var row = document.createElement("tr");
             row.innerHTML = `
                 <td>#${i + 1}</td>
@@ -416,6 +417,7 @@
                 <td>${time}</td>
                 <td>${deathCount}</td>
                 <td>${completion}</td>
+                <td>${other}</td>
                 <td>${score}</td>
             `;
             rankingTable.appendChild(row);

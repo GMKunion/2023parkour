@@ -51,13 +51,13 @@
 
 <body>
     <div id="header">
-        <h1>排行榜[持续更新中]</h1>
+        <h1>排行榜</h1>
         <p>2023年GMK Parkour比赛</p>
-        <p>比赛完全结束前，仅统计跑完全程的，没跑完的比赛结束后统计！</p>
+        <p>比赛结束了，排名已完全统计！</p>
     </div>
 
     <div id="content">
-        <table id="leaderboard-table">
+        <table id="ranking-table">
             <tr>
                 <th>排行</th>
                 <th>玩家</th>
@@ -71,35 +71,361 @@
 
     <script>
         // json数据
-        var leaderboardData = [
-            { rank: "#1", player: "kbpf", time: "1609", deathcount: "2", completion: "29", score: "95.2925" },
-            { rank: "#2", player: "The_Linsama", time: "5594", deathcount: "32", completion: "29", score: "91.4717" },
-            { rank: "#3", player: "ChainKing", time: "16833", deathcount: "113", completion: "29", score: "80.7558" },
-            { rank: "#4", player: "null", time: "null", deathcount: "null", completion: "null", score: "null" }
-        ];
+        var rankingData = [
+            // player 玩家名 time 用时 deathCount 死亡次数 completion 完成关卡数 other 额外扣分
+        {
+            "player": "kbpf",
+            "time": 1605,
+            "deathCount": 2,
+            "completion": 29,
+            "other": 0
+        },
+        {
+            "player": "The_Linsama",
+            "time": 5594,
+            "deathCount": 32,
+            "completion": 29,
+            "other": 0
+        },
+        {
+            "player": "ChainKing",
+            "time": 16833,
+            "deathCount": 113,
+            "completion": 29,
+            "other": 0
+        },
+        {
+            "player": "Tang__xiaogou",
+            "time": 6664,
+            "deathCount": 35,
+            "completion": 15,
+            "other": 0
+        },
+        {
+            "player": "Cloud_Shadow_",
+            "time": 7203,
+            "deathCount": 43,
+            "completion": 12,
+            "other": 0
+        },
+        {
+            "player": "Awsome_Liz",
+            "time": 2763,
+            "deathCount": 26,
+            "completion": 6,
+            "other": 0
+        },
+        {
+            "player": "Rharil",
+            "time": 8705,
+            "deathCount": 26,
+            "completion": 7,
+            "other": 0
+        },
+        {
+            "player": "yuezhaofengxi",
+            "time": 21696,
+            "deathCount": 417,
+            "completion": 12,
+            "other": 0
+        },
+        {
+            "player": "FRUITS__CANDY",
+            "time": 6152,
+            "deathCount": 91,
+            "completion": 6,
+            "other": 0
+        },
+        {
+            "player": "Proud_Cow",
+            "time": 1052,
+            "deathCount": 30,
+            "completion": 4,
+            "other": 0
+        },
+        {
+            "player": "xiaomiiiii",
+            "time": 1580,
+            "deathCount": 19,
+            "completion": 4,
+            "other": 0
+        },
+        {
+            "player": "Dream_Promise",
+            "time": 4627,
+            "deathCount": 0,
+            "completion": 4,
+            "other": 0
+        },
+        {
+            "player": "Ethancai666",
+            "time": 4290,
+            "deathCount": 22,
+            "completion": 4,
+            "other": 0
+        },
+        {
+            "player": "abab",
+            "time": 3272,
+            "deathCount": 93,
+            "completion": 4,
+            "other": 0
+        },
+        {
+            "player": "niguolaixiyue",
+            "time": 8259,
+            "deathCount": 163,
+            "completion": 5,
+            "other": 0
+        },
+        {
+            "player": "Player482",
+            "time": 1894,
+            "deathCount": 0,
+            "completion": 2,
+            "other": 0
+        },
+        {
+            "player": "MtzHere",
+            "time": 1243,
+            "deathCount": 79,
+            "completion": 2,
+            "other": 0
+        },
+        {
+            "player": "ZongziTEK",
+            "time": 2651,
+            "deathCount": 13,
+            "completion": 2,
+            "other": 0
+        },
+        {
+            "player": 112345976,
+            "time": 1856,
+            "deathCount": 73,
+            "completion": 2,
+            "other": 0
+        },
+        {
+            "player": "Skeleton_Sans",
+            "time": 3277,
+            "deathCount": 22,
+            "completion": 2,
+            "other": 0
+        },
+        {
+            "player": "Amireuxm",
+            "time": 81,
+            "deathCount": 0,
+            "completion": 1,
+            "other": 0
+        },
+        {
+            "player": "QiongTu666",
+            "time": 131,
+            "deathCount": 0,
+            "completion": 1,
+            "other": 0
+        },
+        {
+            "player": "koeGui",
+            "time": 3178,
+            "deathCount": 49,
+            "completion": 2,
+            "other": 0
+        },
+        {
+            "player": "3q14",
+            "time": 374,
+            "deathCount": 0,
+            "completion": 1,
+            "other": 0
+        },
+        {
+            "player": "xiabeize_114514",
+            "time": 379,
+            "deathCount": 0,
+            "completion": 1,
+            "other": 0
+        },
+        {
+            "player": "Unknown404",
+            "time": 370,
+            "deathCount": 1,
+            "completion": 1,
+            "other": 0
+        },
+        {
+            "player": "XiQuedhm233",
+            "time": 467,
+            "deathCount": 0,
+            "completion": 1,
+            "other": 0
+        },
+        {
+            "player": "ycsgg",
+            "time": 588,
+            "deathCount": 0,
+            "completion": 1,
+            "other": 0
+        },
+        {
+            "player": "fireso",
+            "time": 766,
+            "deathCount": 0,
+            "completion": 1,
+            "other": 0
+        },
+        {
+            "player": "Lecny",
+            "time": 836,
+            "deathCount": 0,
+            "completion": 1,
+            "other": 0
+        },
+        {
+            "player": "Fan_nao",
+            "time": 1130,
+            "deathCount": 0,
+            "completion": 1,
+            "other": 0
+        },
+        {
+            "player": "xXx_wksl_xXx",
+            "time": 1529,
+            "deathCount": 7,
+            "completion": 1,
+            "other": 0
+        },
+        {
+            "player": "ethccc",
+            "time": 11118,
+            "deathCount": 138,
+            "completion": 4,
+            "other": 0
+        },
+        {
+            "player": "BiliBiliBaiye",
+            "time": 1970,
+            "deathCount": 4,
+            "completion": 1,
+            "other": 0
+        },
+        {
+            "player": "kokoa_kira",
+            "time": 2102,
+            "deathCount": 0,
+            "completion": 1,
+            "other": 0
+        },
+        {
+            "player": "W_2000_",
+            "time": 5317,
+            "deathCount": 73,
+            "completion": 2,
+            "other": 0
+        },
+        {
+            "player": "salengDaDa",
+            "time": 3280,
+            "deathCount": 2,
+            "completion": 1,
+            "other": 0
+        },
+        {
+            "player": "ObcbO",
+            "time": 3531,
+            "deathCount": 0,
+            "completion": 1,
+            "other": 0
+        },
+        {
+            "player": "SunShadow_OwO",
+            "time": 0,
+            "deathCount": 0,
+            "completion": 0,
+            "other": 0
+        },
+        {
+            "player": "zzyhh",
+            "time": 0,
+            "deathCount": 0,
+            "completion": 0,
+            "other": 0
+        },
+        {
+            "player": "Zongzi_TEK",
+            "time": 0,
+            "deathCount": 0,
+            "completion": 0,
+            "other": 0
+        },
+        {
+            "player": "mukaunonline",
+            "time": 2481,
+            "deathCount": 84,
+            "completion": 2,
+            "other": 5
+        },
+        {
+            "player": "Myschar",
+            "time": 356,
+            "deathCount": 0,
+            "completion": 1,
+            "other": 5
+        },
+        {
+            "player": "Gt_BenDan_Tu",
+            "time": 15787,
+            "deathCount": 399,
+            "completion": 4,
+            "other": 0
+        },
+        {
+            "player": "Zyu",
+            "time": 17739,
+            "deathCount": 311,
+            "completion": 4,
+            "other": 0
+        },
+        {
+            "player": "xiaoxiaoxu",
+            "time": 27340,
+            "deathCount": 788,
+            "completion": 4,
+            "other": 0
+        }
+    ];
 
-        var leaderboardTable = document.getElementById("leaderboard-table");
-        for (var i = 0; i < leaderboardData.length; i++) {
+        var rankingTable = document.getElementById("ranking-table");
+        for (var i = 0; i < rankingData.length; i++) {
+            const { time, deathCount, completion, other } = rankingData[i];
+            rankingData[i].score = ([(completion * 4 - time * 0.001 - deathCount * 0.02 - other) / 120] * 100).toFixed(4);
+        }
+        rankingData.sort((a, b) => b.score - a.score);
+
+        for (var i = 0; i < rankingData.length; i++) {
+            const { player, time, deathCount, completion, score } = rankingData[i];
             var row = document.createElement("tr");
             row.innerHTML = `
-                <td>${leaderboardData[i].rank}</td>
+                <td>#${i + 1}</td>
                 <td>
-                <img src="https://minotar.net/avatar/${leaderboardData[i].player}" alt="Player Avatar" class="player-avatar">
-                ${leaderboardData[i].player}
+                <img src="https://minotar.net/avatar/${player}" alt="Player Avatar" class="player-avatar">
+                ${player}
                 </td>
-                <td>${leaderboardData[i].time}</td>
-                <td>${leaderboardData[i].deathcount}</td>
-                <td>${leaderboardData[i].completion}</td>
-                <td>${leaderboardData[i].score}</td>
+                <td>${time}</td>
+                <td>${deathCount}</td>
+                <td>${completion}</td>
+                <td>${score}</td>
             `;
-            leaderboardTable.appendChild(row);
+            rankingTable.appendChild(row);
         }
     </script>
-        <p></p>
-        <div id="header">
-            <h4>计算公式:分数=[(关卡*4-时间*0.001-死亡数*0.02-其他)/120]*100</h4>
-            <h4>其他扣分项目：临时ban    5分/次           Ban    10分，如果没有则不扣分</h4>
-        </div>
+    <p></p>
+    <div id="header">
+        <h4>计算公式: 分数=[(关卡*4-时间*0.001-死亡数*0.02-其他)/120]*100</h4>
+        <h4>其他扣分项目: 临时ban 5分/次 Ban 10分, 如果没有则不扣分</h4>
+    </div>
 </body>
 
 </html>
